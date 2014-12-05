@@ -16,9 +16,9 @@ namespace StickyNotes\Model\Entity;
 
 class StickyNote {
 
-    protected $_id;
-    protected $_note;
-    protected $_created;
+    protected $_sq_sticky_note;
+    protected $_ds_note;
+    protected $_dt_created;
 
     public function __construct(array $options = null) {
         if (is_array($options)) {
@@ -54,29 +54,29 @@ class StickyNote {
     }
 
     public function getId() {
-        return $this->_id;
+        return $this->_sq_sticky_note;
     }
 
     public function setId($id) {
-        $this->_id = $id;
+        $this->_sq_sticky_note = $id;
         return $this;
     }
 
     public function getNote() {
-        return $this->_note;
+        return $this->_ds_note;
     }
 
     public function setNote($note) {
-        $this->_note = $note;
+        $this->_ds_note = $note;
         return $this;
     }
 
     public function getCreated() {
-        return $this->_created;
+        return $this->_dt_created;
     }
 
     public function setCreated($created) {
-        $this->_created = $created;
+        $this->_dt_created = $created;
         return $this;
     }
 

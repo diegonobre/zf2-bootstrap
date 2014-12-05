@@ -15,9 +15,7 @@
 return array(
     'db' => array(
         'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=stickynotes;host=localhost',
-//         'username'       => 'root',
-//         'password'       => 'nobre',
+        'dsn'            => 'pgsql:host=localhost;port=5432;dbname=zf2;user=zf2;password=123',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),
