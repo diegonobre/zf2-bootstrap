@@ -12,8 +12,9 @@ modules found on GitHub.
 
 Modules Included
 ----------------
-	`Big-Sticky-Notes` - created by [bigemployee](https://github.com/bigemployee/Big-Sticky-Notes)
-	`Bootstrap-Form-Builder` - created by [minikomi](https://github.com/minikomi/Bootstrap-Form-Builder)
+`Big-Sticky-Notes` - created by [bigemployee](https://github.com/bigemployee/Big-Sticky-Notes)
+
+`Bootstrap-Form-Builder` - created by [minikomi](https://github.com/minikomi/Bootstrap-Form-Builder)
 
 Installation
 ------------
