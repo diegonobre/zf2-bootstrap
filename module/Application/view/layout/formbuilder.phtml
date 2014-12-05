@@ -1,0 +1,48 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">  
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('FormBuilder ' . $this->translate('Sticky Notes'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <!-- Le styles -->
+    <?php
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+            ->prependStylesheet($this->basePath() . '/assets/css/lib/bootstrap.min.css')
+            ->prependStylesheet($this->basePath() . '/assets/css/lib/bootstrap-responsive.min.css')
+            ->prependStylesheet($this->basePath() . '/assets/css/custom.css')
+    ?>
+    <!-- Scripts -->
+    <?php
+        echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/js/jquery.min.js')
+                ->appendFile($this->basePath() . '/js/form-builder.js')
+                // JS for FormBuilder
+                // <script data-main="assets/js/main-built.js" src="assets/js/lib/require.js" ></script>
+//                 ->appendFile($this->basepath() . '/formbuilder/js/main-built.js')
+//                 ->appendFile($this->basepath() . '/formbuilder/js/lib/require.js')
+        ?>
+</head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+              <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Sticky Notes') ?></a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+            </div>
+      </div>
+    </div>
+    <div class="container">
+      <?php echo $this->content; ?>
+
+    </div> <!-- /container -->
+
+    <script data-main="../assets/js/main-built.js" src="../assets/js/lib/require.js" src="../js/form-builder.js" ></script>
+    <?php echo $this->inlineScript() ?>
+  </body>
+</html>
