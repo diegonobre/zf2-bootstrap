@@ -59,9 +59,20 @@ class StickyNotesTable extends AbstractTableGateway {
         $id = (int) $stickyNote->getId();
 
         if ($id == 0) {
-            $data['dt_created'] = date("Y-m-d H:i:s");
-            if (!$this->insert($data))
+            $data['dt_created'] = 'now()'; // date("Y-m-d H:i:s");
+            try 
+            {
+                $result = $this->insert($data);
+            } 
+            catch (Exception $e) 
+            {
+                die($e->getMessage());
+            }
+
+            if (!$result)
                 return false;
+
+            // var_dump($this->getLastInsertValue());die;
             return $this->getLastInsertValue();
         }
         elseif ($this->getStickyNote($id)) {
@@ -75,6 +86,22 @@ class StickyNotesTable extends AbstractTableGateway {
 
     public function removeStickyNote($id) {
         return $this->delete(array('sq_sticky_note' => (int) $id));
+    }
+
+    /**
+     * Override getLastInsertValue from AbstractTableGateway
+     * I can't do it using the default for PostgreSQL
+     */
+    public function getLastInsertValue() {
+        $row = $this->select(function (Select $select) {
+                        $select->order('dt_created DESC');
+                        $select->limit(1);
+                    })->current();
+
+        if (!$row)
+            return false;
+
+        return $row->sq_sticky_note;
     }
 
 }
