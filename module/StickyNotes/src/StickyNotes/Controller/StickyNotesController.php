@@ -60,6 +60,7 @@ class StickyNotesController extends AbstractActionController {
             $note_id = $post_data['id'];
             $note_content = $post_data['content'];
             $stickynote = $this->getStickyNotesTable()->getStickyNote($note_id);
+            
             $stickynote->setNote($note_content);
             if (!$this->getStickyNotesTable()->saveStickyNote($stickynote))
                 $response->setContent(\Zend\Json\Json::encode(array('response' => false)));

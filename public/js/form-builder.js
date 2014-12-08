@@ -3,13 +3,13 @@
 jQuery(function($) {
 	console.log('Hello form-builder');
 	
-    $('#build').on("click",function(event){
+    $('#save').on("click",function(event){
     	console.log('Saving...');
-        var $stickynote = $(this);
-        var update_id = $stickynote.attr('id'),
-        update_content = $stickynote.html();
-        update_id = update_id.replace("stickynote-","");
-//        console.log('update_id: ' + update_id);
+        var $formbuilder = $(this);
+        var update_id = $formbuilder.attr('id'),
+        console.log('update_id: ' + update_id);
+        update_content = $formbuilder.html();
+        update_id = update_id.replace("save-","");
 //        console.log('update_content: ' + $stickynote.html());
 
         $.post("form-builder/update", {

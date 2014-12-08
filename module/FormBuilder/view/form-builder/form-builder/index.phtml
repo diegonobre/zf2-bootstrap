@@ -8,11 +8,11 @@
 			<!-- Button -->
             <div class="control-group">
               <div class="controls">
-                <button id="save" name="save" class="btn btn-primary">Save</button>
+                <button id="save-<?php echo $formbuilder->getId() ?>" name="save" class="btn btn-primary">Save</button>
               </div>
             </div>
 			<div id="build">
-    			<div id="stickynote-<?php echo $formbuilder->getId() ?>">
+    			<div id="formbuilder-<?php echo $formbuilder->getId() ?>">
     			    <form id="target" class="form-horizontal"></form>
     			</div>
 			</div>

@@ -16,9 +16,9 @@ namespace FormBuilder\Model\Entity;
 
 class FormBuilder {
 
-    protected $_id;
-    protected $_name;
-    protected $_created;
+    protected $_sq_form_builder;
+    protected $_ds_name;
+    protected $_dt_created;
 
     public function __construct(array $options = null) {
         if (is_array($options)) {
@@ -54,29 +54,29 @@ class FormBuilder {
     }
 
     public function getId() {
-        return $this->_id;
+        return $this->_sq_form_builder;
     }
 
     public function setId($id) {
-        $this->_id = $id;
+        $this->_sq_form_builder = $id;
         return $this;
     }
 
     public function getName() {
-        return $this->_name;
+        return $this->_ds_name;
     }
 
     public function setName($name) {
-        $this->_name = $name;
+        $this->_ds_name = $name;
         return $this;
     }
 
     public function getCreated() {
-        return $this->_created;
+        return $this->_dt_created;
     }
 
     public function setCreated($created) {
-        $this->_created = $created;
+        $this->_dt_created = $created;
         return $this;
     }
 

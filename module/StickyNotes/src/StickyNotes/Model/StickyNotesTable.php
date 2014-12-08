@@ -38,15 +38,24 @@ class StickyNotesTable extends AbstractTableGateway {
     }
 
     public function getStickyNote($id) {
-        $row = $this->select(array('sq_sticky_note' => (int) $id))->current();
+        try 
+        {
+            $row = $this->select(array('sq_sticky_note' => (int) $id))->current();
+        } 
+        catch (Exception $e) 
+        {
+            die($e->getMessage());
+        }
+
         if (!$row)
             return false;
 
         $stickyNote = new Entity\StickyNote(array(
-                    'sq_sticky_note' => $row->sq_sticky_note,
-                    'ds_note' => $row->ds_note,
-                    'dt_created' => $row->dt_created,
+                    'id' => $row->sq_sticky_note,
+                    'note' => $row->ds_note,
+                    'created' => $row->dt_created,
                 ));
+
         return $stickyNote;
     }
 
@@ -72,7 +81,6 @@ class StickyNotesTable extends AbstractTableGateway {
             if (!$result)
                 return false;
 
-            // var_dump($this->getLastInsertValue());die;
             return $this->getLastInsertValue();
         }
         elseif ($this->getStickyNote($id)) {
